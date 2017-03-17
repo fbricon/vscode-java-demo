@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments :: head(title='Messages : View all messages')">
+		<title>Messages : View all messages</title>
+	</head>
+	<body>
+		<div class="container">
+			<div th:replace="fragments :: navbar"></div>
+			<h1>Messages : all</h1>
+			<div class="alert alert-success" th:if="${globalMessage}"
+				th:text="${globalMessage}">Some Success message</div>
+			<div class="container">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<!-- <td>ID</td> -->
+							<td class="span2">Created</td>
+							<td class="">Summary</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:if="${messages.empty}">
+							<td colspan="3">No messages</td>
+						</tr>
+						<tr th:each="message : ${messages}">
+							<!--<td th:text="${message.id}">1</td>-->
+							<td th:text="${#calendars.format(message.created, 'dd-MM-yyyy')}" >July 11,
+								2016</td>
+							<td><a href="view.html" th:href="@{'/' + ${message.id}}"
+								th:text="${message.summary}"> The summary </a></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="pull-left">
+					<a href="form.html" th:href="@{/(form)}">Create Message</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments :: head(title='Messages : View')">
+		<title>Messages : View</title>
+	</head>
+	<body>
+		<div class="container">
+			<div th:replace="fragments :: navbar"></div>
+			<h3 th:text="${message.summary}">title</h3>
+			<div class="alert alert-success" th:if="${globalMessage}"
+				th:text="${globalMessage}">Some Success message</div>
+			<div class="pull-right">
+				<a th:href="@{/}" href="list.html"> Messages </a>
+			</div>
+			<label id="created" th:text=" ${{#calendars.format(message.created, 'EEE, dd-MM-yyyy')}}">
+					Posted on March 15, 2017</label>	
+			<p th:text="${message.text}">Lorem Ipsum...</p>
+			<div class="pull-left">
+				<a href="messages" th:href="@{'/delete/' + ${message.id}}">delete </a> |
+				<a href="form.html" th:href="@{'/modify/' + ${message.id}}"> modify </a>
+			</div>
+		</div>
+	</body>
+</html>

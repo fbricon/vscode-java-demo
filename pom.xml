@@ -51,6 +51,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!--
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.14</version>
+		</dependency>
+		-->
 	</dependencies>
 
 	<build>
@@ -61,13 +68,6 @@
 				<configuration>
 					<addResources>true</addResources>
 				</configuration>
-				<dependencies>
-                	<dependency>
-                   		<groupId>org.springframework</groupId>
-                    	<artifactId>springloaded</artifactId>
-                    	<version>1.2.6.RELEASE</version>
-                	</dependency>
-            	</dependencies>
 			</plugin>
 		</plugins>
 	</build>
